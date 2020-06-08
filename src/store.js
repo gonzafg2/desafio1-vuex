@@ -7,6 +7,7 @@ const store = new Vuex.Store({
   state: {
     titulo: "32bits",
     subtitulo: "Juegos de PC y Consolas",
+    juegosPropiedades: ["Código", "Nombre", "Stock", "Precio", "Color", "Destacado"],
     juegos: [
       {
         codigo: "0001",

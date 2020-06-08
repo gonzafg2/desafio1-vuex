@@ -1,9 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <ul>
-      <li><router-link :to="{name: 'inicio'}">Inicio</router-link></li>
-    </ul>
+    <NavBar />
     <transition name="vista">
       <router-view></router-view>
     </transition>
@@ -11,8 +8,11 @@
 </template>
 
 <script>
+import NavBar from "./components/NavBar"
 
 export default {
+  name: "App",
+  components: { NavBar }
 }
 </script>
 

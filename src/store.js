@@ -12,7 +12,7 @@ const store = new Vuex.Store({
       {
         codigo: "0001",
         nombre: "Sekiro",
-        stock: 100,
+        stock: 0,
         precio: 30000,
         color: "red",
         destacado: true
@@ -59,7 +59,26 @@ const store = new Vuex.Store({
       },
     ]
   },
-  getters: {},
+  getters: {
+    juegosTotal(state) {
+      return state.juegos.length;
+    },
+    stockTotales(state) {
+      let total = null;
+      for (let juego of state.juegos) {
+        total += juego.stock;
+      }
+      return total;
+    },
+    juegosConStock(state) {
+      const juegoStock = state.juegos.filter(fil => fil.stock > 0);
+      return juegoStock;
+    },
+    juegoBuscado(state, getters) {
+      const juego = codigo =>getters.juegosConStock.filter(fil => fil.codigo == codigo);
+      return juego;
+    }
+  },
   mutations: {},
   actions: {}
 });
